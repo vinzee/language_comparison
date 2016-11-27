@@ -1,4 +1,7 @@
-defmodule Fib do
+defmodule Fibonacci do
+  use Benchfella
+  Benchfella.start
+
   def spawn_run(pid, n) do
     spawn __MODULE__, :send_run, [pid, n]
   end
@@ -21,8 +24,11 @@ defmodule Fib do
   				x + y
     	end
     end
-
 	end
+
+  bench "parallel fibonnaci generator" do
+    Fibonacci.fib(10)
+  end
 end
 
-IO.puts Fib.fib(10)
+# IO.puts Fibonacci.fib(10)
