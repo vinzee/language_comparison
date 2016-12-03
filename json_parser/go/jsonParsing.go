@@ -42,5 +42,6 @@ func BenchmarkFileIo(b *testing.B) {
 func main() {
     //fmt.Println(http.ListenAndServe("localhost:6060", nil))
     br := testing.Benchmark(BenchmarkFileIo)
-    fmt.Println(br)
+    fmt.Println("time for parallel fibonacci program in Go is ", br.NsPerOp(), " nanosecons")
+    fmt.Println("memory for parallel fibonacci program in Go is ", br.AllocedBytesPerOp(), " bytes")
 }
