@@ -16,7 +16,7 @@ func emailValidator(email string) bool{
 	return false
 }
 
-func BenchmarkRequest(b *testing.B) {
+func BenchmarkValidator(b *testing.B) {
     for i := 0; i < b.N; i++ {
           _ = emailValidator("vinzee93@gmail.com")
           _ = emailValidator("vinzee93")
@@ -24,7 +24,7 @@ func BenchmarkRequest(b *testing.B) {
 }
 
 func main(){
-	br := testing.Benchmark(BenchmarkFibo)
+	br := testing.Benchmark(BenchmarkValidator)
     fmt.Println("time for pattern matching program in Go is ", br.NsPerOp(), " nanosecons")
     fmt.Println("memory for pattern matching program in Go is ", br.AllocedBytesPerOp(), " bytes")
 }
