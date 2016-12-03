@@ -42,7 +42,7 @@ func BenchmarkgetData(b *testing.B) {
 }
 
 func main() {
-    br := testing.Benchmark(BenchmarkFibo)
+    br := testing.Benchmark(BenchmarkgetData)
     fmt.Println("time for databse  program in Go is ", br.NsPerOp(), " nanosecons")
     fmt.Println("memory for database program in Go is ", br.AllocedBytesPerOp(), " bytes")
 }
