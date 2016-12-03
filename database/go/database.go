@@ -15,11 +15,6 @@ type Student struct{
 	Age int
 }
 
-func main(){
-	br := testing.Benchmark(BenchmarkgetData)
-    fmt.Println(br)
-}
-
 func getData() string{
 	database := "Scala"
 	user := "guest"
@@ -44,4 +39,10 @@ func BenchmarkgetData(b *testing.B) {
     for i := 0; i < b.N; i++ {
    		getData()
 	}
+}
+
+func main() {
+    br := testing.Benchmark(BenchmarkFibo)
+    fmt.Println("time for databse  program in Go is ", br.NsPerOp(), " nanosecons")
+    fmt.Println("memory for database program in Go is ", br.AllocedBytesPerOp(), " bytes")
 }

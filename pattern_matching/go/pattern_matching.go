@@ -24,6 +24,7 @@ func BenchmarkRequest(b *testing.B) {
 }
 
 func main(){
-	br := testing.Benchmark(BenchmarkRequest)
-    fmt.Println(br)
+	br := testing.Benchmark(BenchmarkFibo)
+    fmt.Println("time for pattern matching program in Go is ", br.NsPerOp(), " nanosecons")
+    fmt.Println("memory for pattern matching program in Go is ", br.AllocedBytesPerOp(), " bytes")
 }

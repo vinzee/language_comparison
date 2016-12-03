@@ -31,8 +31,10 @@ func BenchmarkRequest(b *testing.B) {
 	}
 }
 
+
 func main(){
 	rand.Seed(time.Now().UTC().UnixNano())
-	br := testing.Benchmark(BenchmarkRequest)
-    fmt.Println(br)
+	br := testing.Benchmark(BenchmarkFibo)
+    fmt.Println("time for inmemory cache program in Go is ", br.NsPerOp(), " nanosecons")
+    fmt.Println("memory for inmemory cache program in Go is ", br.AllocedBytesPerOp(), " bytes")
 }

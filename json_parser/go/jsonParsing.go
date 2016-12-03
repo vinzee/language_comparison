@@ -17,17 +17,17 @@ type Data struct {
 func FileIo() {
 	 jsonFile, err := os.Open(`jsonData.txt`)
 	 if err != nil {
-        fmt.Printf("error opening file", err.Error())
+        fmt.Printf("error while opening file", err.Error())
      }
      jsonParser := json.NewDecoder(jsonFile)
-     array  := make([]Data, 1000)
-     if err = jsonParser.Decode(&array); err != nil {
-         fmt.Printf("parsing json file", err.Error())
+     dataArray  := make([]Data, 1000)
+     if err = jsonParser.Decode(&dataArray); err != nil {
+         fmt.Printf("error in parsing json file", err.Error())
      }
      max := -1
      for i := 0; i<1000; i++{
-     	if(array[i].Price>max){
-     		max = array[i].Price
+     	if(dataArray[i].Price>max){
+     		max = dataArray[i].Price
      	}
  	 }
  	//fmt.Printf("%d\n", max)
@@ -42,6 +42,6 @@ func BenchmarkFileIo(b *testing.B) {
 func main() {
     //fmt.Println(http.ListenAndServe("localhost:6060", nil))
     br := testing.Benchmark(BenchmarkFileIo)
-    fmt.Println("time for parallel fibonacci program in Go is ", br.NsPerOp(), " nanosecons")
-    fmt.Println("memory for parallel fibonacci program in Go is ", br.AllocedBytesPerOp(), " bytes")
+    fmt.Println("time for json parsing program in Go is ", br.NsPerOp(), " nanosecons")
+    fmt.Println("memory for json parsing program in Go is ", br.AllocedBytesPerOp(), " bytes")
 }
