@@ -8,7 +8,7 @@ object ScalaDatabase{
 	def getData() : String = {
 
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
-    var conn:Connection = null
+    	var conn:Connection = null
 
 		conn = DriverManager.getConnection("jdbc:mysql://localhost/Scala", "root", "admin123")
 		val st = conn.createStatement()
