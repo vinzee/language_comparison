@@ -15,7 +15,7 @@ type Data struct {
 }
 
 func FileIo() {
-	 jsonFile, err := os.Open(`jsonData.txt`)
+	 jsonFile, err := os.Open(`json_parser/go/jsonData.txt`)
 	 if err != nil {
         fmt.Printf("error while opening file", err.Error())
      }
