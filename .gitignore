@@ -1,0 +1,5 @@
+# Elixir -
+bench
+_build
+mix.lock
+deps

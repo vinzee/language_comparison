@@ -1,2 +1,5 @@
 %{"benchee": {:hex, :benchee, "0.5.0", "de9555c5183b1cbb5cbddac723a03accdf6869cd9330f45064dd4411ee060ba1", [:mix], []},
-  "benchfella": {:hex, :benchfella, "0.3.3", "bbde48b5fe1ef556baa7ad933008e214e050e81ddb0916350715f5759fb35c0c", [:mix], []}}
+  "benchfella": {:hex, :benchfella, "0.3.3", "bbde48b5fe1ef556baa7ad933008e214e050e81ddb0916350715f5759fb35c0c", [:mix], []},
+  "earmark": {:hex, :earmark, "1.0.3", "89bdbaf2aca8bbb5c97d8b3b55c5dd0cff517ecc78d417e87f1d0982e514557b", [:mix], []},
+  "json": {:hex, :json, "1.0.0", "4824dadb01e14395f65e9d18da294d534326d7eed77996f3c22f74a9870179eb", [:mix], [{:earmark, ">= 0.0.0", [hex: :earmark, optional: false]}]},
+  "socket": {:hex, :socket, "0.3.5", "6c23772e7eda60f129f36dd69a61930aab18ae9b8d74d7f767c85355cf0b585d", [:mix], []}}
