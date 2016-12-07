@@ -31,5 +31,13 @@ object ChatClient{
 
 		time{message()}
 
+		val mb = 1024*1024
+	    val runtime = Runtime.getRuntime
+	    println("\nMemory in MB")
+	    println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory) / mb)
+	    println("** Free Memory:  " + runtime.freeMemory / mb)
+	    println("** Total Memory: " + runtime.totalMemory / mb)
+	    println("** Max Memory:   " + runtime.maxMemory / mb)
+
 	}
 }
