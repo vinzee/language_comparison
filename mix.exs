@@ -29,8 +29,10 @@ defmodule KV.Mixfile do
   defp deps do
     [
       {:benchfella, "~> 0.3.0"},
+      # {:benchee, "~> 0.1", only: :dev},
       {:socket, "~> 0.3"},
-      {:json, "~> 1.0"}
-    ] # [{:benchee, "~> 0.1", only: :dev}]
+      {:json, "~> 1.0"},
+      {:mariaex, "~> 0.7.3"}
+    ]
   end
 end

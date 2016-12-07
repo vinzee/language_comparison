@@ -16,6 +16,3 @@ defmodule EmailValidator do
   end
 
 end
-
-# IO.puts elem(EmailValidator.validate_email("vinzee93@gmail.com"), 1)
-# IO.puts elem(EmailValidator.validate_email("vinzee93"), 1)
