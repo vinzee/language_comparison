@@ -9,23 +9,24 @@ import (
 	"math/rand"
 )
 
-var m = make(map[int]string, 1000)
+var cache = make(map[int]string, 1000)
 
 func Request(key int) (string, bool){
-	if val, ok := m[key];ok{
+	if val, ok := cache[key];ok{
 		return val, true // hit
 	} else{ // miss
-		if(len(m)>1000){ // if size of m is >1000 need to evict
-			for k := range m { //evict a random element
-				delete(m, k)
-       			m[key] = "Testing val"	
+		if(len(cache)>1000){ // if size of m is >1000 need to evict
+			for k := range cache { //evict a random element
+				delete(cache, k)
+       			cache[key] = "Testing val"	
        			break
    			}
 		} else {	// else append the new key value pair to the map
-			 m[key] = "Testing val\n"
+			 cache[key] = "Testing val\n"
 		}
 	}
-	return m[key], false
+
+	return cache[key], false
 }
 
 func BenchmarkRequest(b *testing.B) {

@@ -15,30 +15,30 @@ type Student struct{
 	Age int
 }
 
-func getData() string{
-	database := "Scala"
-	user := "guest"
-	password := "mysql123"
-	con, err := sql.Open("mysql", user+":"+password+"@/"+database)
-	if(err!=nil){
-		panic(err.Error())
-	}
+func getData(con *sql.DB) string{
 	query := "select * from student where name = ?"
 	row := con.QueryRow(query, "Shantanu")
 	rs := new(Student)
-	err = row.Scan(&rs.Id, &rs.Name, &rs.Uni, &rs.Age)
+	err := row.Scan(&rs.Id, &rs.Name, &rs.Uni, &rs.Age)
 	if(err!=nil){
 		fmt.Println(err);
 	}
-	result := "Student id is: " + strconv.Itoa(rs.Id) + "\n" + "Student name is: " + rs.Name + "\n" + "Student university is: " + rs.Uni + "\n" + "Student age is: " + strconv.Itoa(rs.Age)
-	defer con.Close()	
+	result := "Student id is: " + strconv.Itoa(rs.Id) + "\n" + "Student name is: " + rs.Name + "\n" + "Student university is: " + rs.Uni + "\n" + "Student age is: " + strconv.Itoa(rs.Age)	
 	return result
 }
 
 func BenchmarkgetData(b *testing.B) {
-    for i := 0; i < b.N; i++ {
-   		getData()
+	database := "language_comparison"
+	user := "guest"
+	password := "admin123"
+	con, err := sql.Open("mysql", user+":"+password+"@/"+database)
+	if(err!=nil){
+		panic(err.Error())
 	}
+    for i := 0; i < b.N; i++ {
+   		getData(con)
+	}
+	defer con.Close()
 }
 
 func main() {
