@@ -2,7 +2,7 @@ defmodule InMemoryCache do
   use Benchfella
   Benchfella.start
 
-	def makeRequest(cache, key) do
+	def request(cache, key) do
 		val = Map.get(cache, key)
 
 		if val != nil do # hit
@@ -22,17 +22,11 @@ defmodule InMemoryCache do
 		cache[key]
 	end
 
-	def benchmarkRequest(cache, n) when n == 0 do
-	    makeRequest(cache, :rand.uniform(3000))
-	end
-
-	def benchmarkRequest(cache, n) do
-		# random integer between 0 to 3000
-		makeRequest(cache, :rand.uniform(3000))
-		InMemoryCache.benchmarkRequest(cache, n-1)
+	def benchmarkRequest(cache) do
+	    request(cache, :rand.uniform(3000))
 	end
 
  	bench "inmemory cache" do
-		InMemoryCache.benchmarkRequest(%{}, 100)
+		InMemoryCache.benchmarkRequest(%{})
 	end
 end

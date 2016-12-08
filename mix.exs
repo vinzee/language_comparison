@@ -32,7 +32,9 @@ defmodule KV.Mixfile do
       # {:benchee, "~> 0.1", only: :dev},
       {:socket, "~> 0.3"},
       {:json, "~> 1.0"},
-      {:mariaex, "~> 0.7.3"}
+      {:mariaex, "~> 0.7.3"},
+      {:timex, "~> 3.0"}
+      # {:explot, "~> 0.1.0"}
     ]
   end
 end

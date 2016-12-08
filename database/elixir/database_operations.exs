@@ -3,19 +3,17 @@ defmodule DatabaseOperations do
 	Benchfella.start
 
 	# make connection to mysql
-	@db Mariaex.Connection.start_link(username: "root", password: 'admin123', database: "elixir")
+	@db Mariaex.Connection.start_link(username: "guest", password: 'admin123', database: "language_comparison")
 
-	def get_student(db, name) do
+	def get_data(db) do
 		# fire query
-		{_, data} = Mariaex.query(db, "SELECT * FROM student where name='#{name}'")
-
+		{_, data} = Mariaex.query(db, "SELECT * FROM student where name='vineet'")
 		rows = Map.get(data, :rows)
-		# IO.inspect rows
 		rows
 	end
 
 	bench "DatabaseOperations" do
 		{_, db} = @db
-		get_student(db, 'vineet')
+		get_data(db)
 	end
 end

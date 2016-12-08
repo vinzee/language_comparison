@@ -30,5 +30,3 @@ defmodule Fibonacci do
     Fibonacci.fib(10)
   end
 end
-
-# IO.puts Fibonacci.fib(10)
