@@ -1,0 +1,1 @@
+Implement a parallel fibonnaci sequence generator
