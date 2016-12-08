@@ -1,5 +1,6 @@
-server = Socket.Web.listen! 80
+server = Socket.Web.listen! 8080
 client = server |> Socket.Web.accept!
+Socket.Web.close 8080
 
 case client |> Socket.Web.recv! do
   {_, data} ->

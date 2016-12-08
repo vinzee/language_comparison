@@ -1,14 +1,20 @@
-use Timex
+defmodule NetworkProgramming do
+	use Benchfella
+	Benchfella.start([{:bench_count, 1}])
 
-socket = Socket.Web.connect! "echo.websocket.org"
+	def start do
+		socket = Socket.Web.connect! "echo.websocket.org"
+		socket |> Socket.Web.send!({:ping, "hello!"})
 
-socket |> Socket.Web.send!({:ping, "hello!"})
+		case socket |> Socket.Web.recv! do
+		  { _, data } ->
+			len = String.length(data)
+		    # IO.puts "client received data #{len}"
+		end
+	end
 
-t1 = Duration.now
-IO.inspect t1
-
-case socket |> Socket.Web.recv! do
-  { _, data } ->
-	IO.inspect Duration.diff(Duration.now, t1, :seconds)
-    IO.puts "client received data #{String.length(data)}"
+	bench "Network Programming" do
+		# IO.inspect :erlang.process_info(self(), :memory)
+		NetworkProgramming.start
+	end
 end

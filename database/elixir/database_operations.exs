@@ -1,6 +1,6 @@
 defmodule DatabaseOperations do
 	use Benchfella
-	Benchfella.start
+	Benchfella.start([{:bench_count, 1}])
 
 	# make connection to mysql
 	@db Mariaex.Connection.start_link(username: "guest", password: 'admin123', database: "language_comparison")
@@ -13,6 +13,7 @@ defmodule DatabaseOperations do
 	end
 
 	bench "DatabaseOperations" do
+		# IO.inspect :erlang.process_info(self(), :memory)
 		{_, db} = @db
 		get_data(db)
 	end

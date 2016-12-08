@@ -1,6 +1,6 @@
 defmodule EmailValidator do
-  use Benchfella
-  Benchfella.start
+	use Benchfella
+	Benchfella.start([{:bench_count, 1}])
 
 	def validate_email(email) when is_binary(email) do
 		result = Regex.match?(~r/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, email)
@@ -11,8 +11,9 @@ defmodule EmailValidator do
 	  	end
 	end
 
-  bench "email validator" do
-  	EmailValidator.validate_email("vinzee93@gmail.com")
-  end
+	bench "email validator" do
+		# IO.inspect :erlang.process_info(self(), :memory)
+		EmailValidator.validate_email("vinzee93@gmail.com")
+	end
 
 end
