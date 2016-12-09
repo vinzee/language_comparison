@@ -3,3 +3,5 @@ bench
 _build
 mix.lock
 deps
+/*/*/*.class
+/*/*.class
