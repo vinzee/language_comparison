@@ -5,15 +5,14 @@ import java.sql.DriverManager
 
 object ScalaDatabase{
 
-	def getData() : String = {
-
+	def getData(conn:Connection) : String = {
+	  
+	  println("In get data")
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
-    	var conn:Connection = null
-
-		conn = DriverManager.getConnection("jdbc:mysql://localhost/Scala", "root", "admin123")
-		val st = conn.createStatement()
+    val st = conn.createStatement()
 		val rs = st.executeQuery("select * from student where name = 'Shantanu'")
 		var result = ""
+		//println("COUNT")
 		while(rs.next())
 		{
 			val id = rs.getInt("id")
@@ -24,7 +23,7 @@ object ScalaDatabase{
 		}
 		
 		rs.close() 
-		conn.close()
+		//conn.close()
 		return result
 		
 	}
@@ -35,20 +34,24 @@ object ScalaDatabase{
     	val t1 = System.nanoTime()
     	println("Elapsed time: " + (t1 - t0) + "ns")
     	result
-}
+	}
 
 	def main(args: Array[String]): Unit = {
 	  
-		val result = time {getData()}
+	  var conn:Connection = null
+
+		conn = DriverManager.getConnection("jdbc:mysql://localhost/language_comparison", "guest", "admin123")
+
+		val result = time {getData(conn)}
 		println(result)
 
 		val mb = 1024*1024
         val runtime = Runtime.getRuntime
         println("\nMemory in MB")
-        println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory) / mb)
-        println("** Free Memory:  " + runtime.freeMemory / mb)
-        println("** Total Memory: " + runtime.totalMemory / mb)
-        println("** Max Memory:   " + runtime.maxMemory / mb)
+        println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory))
+        println("** Free Memory:  " + runtime.freeMemory)
+        println("** Total Memory: " + runtime.totalMemory)
+        println("** Max Memory:   " + runtime.maxMemory)
 
 	}
 }

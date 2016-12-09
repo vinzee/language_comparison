@@ -48,9 +48,9 @@ object Parallel_fibo
     val mb = 1024*1024
     val runtime = Runtime.getRuntime
     println("\nMemory in MB")
-    println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory) / mb)
-    println("** Free Memory:  " + runtime.freeMemory / mb)
-    println("** Total Memory: " + runtime.totalMemory / mb)
-    println("** Max Memory:   " + runtime.maxMemory / mb)
+    println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory))
+    println("** Free Memory:  " + runtime.freeMemory)
+    println("** Total Memory: " + runtime.totalMemory)
+    println("** Max Memory:   " + runtime.maxMemory)
   }
 }

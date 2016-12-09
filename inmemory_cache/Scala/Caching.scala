@@ -36,7 +36,7 @@ object Caching {
 
 		val rand = new Random
 		
-		for (a <- 0 to 1000){
+		for (a <- 0 to 1010){
 
 			time {cache(rand.nextInt(3000))}
 		}
@@ -44,7 +44,7 @@ object Caching {
 		val mb = 1024*1024
     	val runtime = Runtime.getRuntime
     	println("\nMemory in MB")
-    	println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory) / mb)
+    	println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory)/1010)
     	println("** Free Memory:  " + runtime.freeMemory / mb)
     	println("** Total Memory: " + runtime.totalMemory / mb)
     	println("** Max Memory:   " + runtime.maxMemory / mb)		

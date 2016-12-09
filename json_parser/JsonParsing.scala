@@ -1,16 +1,16 @@
 import collection.immutable.IndexedSeq
-import _root_.com.google.gson.Gson
-import _root_.com.google.gson.JsonObject
-import _root_.com.google.gson.JsonParser
+import com.google.gson.Gson
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 
 case class wrapperObject(val json_string: Array[MyJsonObject])
 case class MyJsonObject(val id:Int ,val price:Int)
 
-object Test2 {
+object JsonParsing {
   
     def maxVal():Integer = {
       
-        val json_string = scala.io.Source.fromFile("jsonData1.json").getLines.mkString
+        val json_string = scala.io.Source.fromFile("jsonData.json").getLines.mkString
         val jsonStringAsObject= new JsonParser().parse(json_string).getAsJsonObject
         val myObj:wrapperObject = gson.fromJson(jsonStringAsObject, classOf[wrapperObject])
         var maxPrice:Int = 0
@@ -38,9 +38,9 @@ object Test2 {
       val mb = 1024*1024
       val runtime = Runtime.getRuntime
       println("\nMemory in MB")
-      println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory))
-      println("** Free Memory:  " + runtime.freeMemory)
-      println("** Total Memory: " + runtime.totalMemory)
-      println("** Max Memory:   " + runtime.maxMemory)       
+      println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory) / mb)
+      println("** Free Memory:  " + runtime.freeMemory / mb)
+      println("** Total Memory: " + runtime.totalMemory / mb)
+      println("** Max Memory:   " + runtime.maxMemory / mb)       
     }
 }
