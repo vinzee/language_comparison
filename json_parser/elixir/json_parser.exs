@@ -14,7 +14,6 @@ defmodule JSONParser do
   end
 
   bench "JSON Parser" do
-    # IO.inspect :erlang.process_info(self(), :memory)
     JSONParser.parse
   end
 end
