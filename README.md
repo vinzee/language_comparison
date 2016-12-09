@@ -30,6 +30,3 @@ $ mix run hello_world.exs
 - Elixir basic Syntax Overview - http://elixir-lang.org/crash-course.html
 - Benchfella Elixir profiler - https://github.com/alco/benchfella
 - JSON parser - https://github.com/cblage/elixir-json
-
-CREATE USER 'guest'@'localhost' IDENTIFIED BY 'admin123';
-GRANT ALL PRIVILEGES ON *.* TO 'guest'@'localhost';
