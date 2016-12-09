@@ -1,6 +1,6 @@
 defmodule NetworkProgramming do
 	use Benchfella
-	Benchfella.start([{:bench_count, 1}])
+	Benchfella.start
 
 	def start do
 		socket = Socket.Web.connect! "echo.websocket.org"
@@ -8,13 +8,11 @@ defmodule NetworkProgramming do
 
 		case socket |> Socket.Web.recv! do
 		  { _, data } ->
-			len = String.length(data)
-		    # IO.puts "client received data #{len}"
+		    # IO.puts "client received data #{String.length(data)}"
 		end
 	end
 
 	bench "Network Programming" do
-		# IO.inspect :erlang.process_info(self(), :memory)
 		NetworkProgramming.start
 	end
 end

@@ -12,7 +12,6 @@ defmodule EmailValidator do
 	end
 
 	bench "email validator" do
-		# IO.inspect :erlang.process_info(self(), :memory)
 		EmailValidator.validate_email("vinzee93@gmail.com")
 	end
 

@@ -27,7 +27,6 @@ defmodule InMemoryCache do
 	end
 
  	bench "inmemory cache" do
-		# IO.inspect :erlang.process_info(self(), :memory)
 		InMemoryCache.benchmarkRequest(%{})
 	end
 end

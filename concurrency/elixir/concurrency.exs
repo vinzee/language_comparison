@@ -27,7 +27,6 @@ defmodule Fibonacci do
 	end
 
   bench "parallel fibonnaci generator" do
-    IO.inspect :erlang.process_info(self(), :memory)
     Fibonacci.fib(10)
   end
 end
