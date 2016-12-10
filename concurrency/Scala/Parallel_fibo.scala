@@ -45,12 +45,7 @@ object Parallel_fibo
     val res = time {(parallel_fibonacci(10))}
     println(res)
 
-    val mb = 1024*1024
     val runtime = Runtime.getRuntime
-    println("\nMemory in MB")
-    println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory))
-    println("** Free Memory:  " + runtime.freeMemory)
-    println("** Total Memory: " + runtime.totalMemory)
-    println("** Max Memory:   " + runtime.maxMemory)
+    println("** Used Memory in Parallel_fibo.scala:  " + (runtime.totalMemory - runtime.freeMemory))
   }
 }
