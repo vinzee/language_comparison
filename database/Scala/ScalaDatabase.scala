@@ -45,13 +45,7 @@ object ScalaDatabase{
 		val result = time {getData(conn)}
 		println(result)
 
-		val mb = 1024*1024
         val runtime = Runtime.getRuntime
-        println("\nMemory in MB")
         println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory))
-        println("** Free Memory:  " + runtime.freeMemory)
-        println("** Total Memory: " + runtime.totalMemory)
-        println("** Max Memory:   " + runtime.maxMemory)
-
 	}
 }
