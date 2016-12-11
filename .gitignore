@@ -5,3 +5,6 @@ mix.lock
 deps
 /*/*/*.class
 /*/*.class
+json_parser/Scala/json_parser/target
+json_parser/Scala/json_parser/app/target
+json_parser/Scala/json_parser/project/target
