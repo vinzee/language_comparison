@@ -3,8 +3,12 @@ bench
 _build
 mix.lock
 deps
+
+#Scala
 /*/*/*.class
 /*/*.class
 json_parser/Scala/json_parser/target
 json_parser/Scala/json_parser/app/target
 json_parser/Scala/json_parser/project/target
+json_parser/Scala/project/target/config-classes/
+json_parser/Scala/target/
