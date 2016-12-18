@@ -1,4 +1,4 @@
-	import java.net._
+import java.net._
 import java.io._
 
 object ChatClient{

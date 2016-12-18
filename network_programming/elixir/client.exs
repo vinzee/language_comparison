@@ -1,20 +1,26 @@
 defmodule NetworkProgramming do
-	use Benchfella
-	Benchfella.start([{:bench_count, 1}])
+  use Benchfella
+  Benchfella.start
 
-	def start do
-		socket = Socket.Web.connect! "echo.websocket.org"
-		socket |> Socket.Web.send!({:ping, "hello!"})
+  def initiate do
+		{:ok, socket} = :gen_tcp.connect('127.0.0.1', 4040, [:binary, packet: 0])
+		:ok = :gen_tcp.send(socket, 'Hello !')
 
-		case socket |> Socket.Web.recv! do
-		  { _, data } ->
-			len = String.length(data)
-		    # IO.puts "client received data #{len}"
+		case :gen_tcp.recv(socket, 0) do
+      {:ok, data} ->
+        IO.puts "data received ! #{data}"
+        :gen_tcp.send(socket, '#{String.length(data)}\n')
+      {:error, :closed} -> :closed # "Socket is closed !"
+      _ -> :ok
 		end
+
+		:ok = :gen_tcp.close(socket)
 	end
 
-	bench "Network Programming" do
-		# IO.inspect :erlang.process_info(self(), :memory)
-		NetworkProgramming.start
-	end
+  bench "NetworkProgramming" do
+    NetworkProgramming.initiate
+  end
+
 end
+
+# telnet 127.0.0.1 4040

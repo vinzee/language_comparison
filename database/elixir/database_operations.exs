@@ -13,7 +13,6 @@ defmodule DatabaseOperations do
 	end
 
 	bench "DatabaseOperations" do
-		# IO.inspect :erlang.process_info(self(), :memory)
 		{_, db} = @db
 		get_data(db)
 	end

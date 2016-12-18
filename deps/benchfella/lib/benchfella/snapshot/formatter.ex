@@ -36,7 +36,7 @@ defmodule Benchfella.Snapshot.Formatter do
   end
 
   defp format_entry({_, name, iter, elapsed}, max_len) do
-    '~*.s ~10B   ~.2f µs/op~n'
+    '~*.s ~10B   ~.2f ns/op~n'
     |> :io_lib.format([-max_len - 1, name, iter, elapsed / iter])
   end
 end

@@ -1,6 +1,9 @@
 #!/bin/bash
+
 printf "\n"
-mix run network_programming/elixir/client.exs
+sudo mix run network_programming/elixir/server.exs &
+sleep 3
+sudo mix run network_programming/elixir/client.exs
 printf "\n"
 mix run concurrency/elixir/concurrency.exs
 printf "\n"

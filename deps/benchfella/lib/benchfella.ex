@@ -65,12 +65,12 @@ defmodule Benchfella do
 
   def run(bench_time, verbose, format, outdir, mem_stats, sys_mem_stats) do
     #if format == :machine do
-      if mem_stats or sys_mem_stats do
-        log ">> 'mem stats' flag is currently ignored"
-      end
-      mem_stats = false
-      sys_mem_stats = false
+      # if mem_stats or sys_mem_stats do
+      #   log ">> 'mem stats' flag is currently ignored"
+      # end
     #end
+      mem_stats = true
+      sys_mem_stats = true
 
     if verbose do
       log "Settings:"
@@ -157,9 +157,12 @@ defmodule Benchfella do
   end
 
   defp print_results(results, bench_time, format, outdir, mem_stats?, sys_mem_stats?) do
+    test_name = to_string(elem(elem(List.first(results),0),0))
+    # IO.inspect results
+
     musec2sec(bench_time)
     |> Snapshot.prepare(mem_stats?, sys_mem_stats?, results)
-    |> write_snapshot(outdir)
+    |> write_snapshot(outdir, test_name)
     |> print_formatted_data(format)
   end
 
@@ -174,22 +177,24 @@ defmodule Benchfella do
     |> Snapshot.print(format)
   end
 
-  defp write_snapshot(iodata, "") do
+  defp write_snapshot(iodata, "", _test_name) do
     iodata
   end
 
-  defp write_snapshot(iodata, dir) do
-    filename = gen_snapshot_name()
+  defp write_snapshot(iodata, dir, test_name) do
+    filename = gen_snapshot_name(test_name)
+
     File.write!(Path.join(dir, filename), iodata)
     iodata
   end
 
-  defp gen_snapshot_name() do
+  defp gen_snapshot_name(test_name) do
     # FIXME: think about including additional info in the filename, like
     # indication of which tests were run or test settings
-    {{year, month, day}, {hour, min, sec}} = :calendar.local_time()
-    :io_lib.format('~B-~2..0B-~2..0B_~2..0B-~2..0B-~2..0B.snapshot',
-                   [year, month, day, hour, min, sec])
+    # {{year, month, day}, {hour, min, sec}} = :calendar.local_time()
+    # :io_lib.format('~B-~2..0B-~2..0B_~2..0B-~2..0B-~2..0B.snapshot',
+    #                [year, month, day, hour, min, sec])
+    "#{String.downcase(test_name)}.snapshot"
   end
 
   #  defp print_mem_stats(n, {mem_before, mem_after, mem_after_gc,
@@ -311,7 +316,6 @@ defmodule Benchfella do
       end
 
       result = measure_once(mod, f, n, context, inputs)
-
       mem_stats = if collect_mem_stats do
         {:memory, mem_after} = :erlang.process_info(pid, :memory)
         :erlang.garbage_collect()

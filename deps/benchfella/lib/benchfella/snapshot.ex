@@ -13,7 +13,16 @@ defmodule Benchfella.Snapshot do
       "sys mem stats:", to_string(sys_mem_stats?),
       "\nmodule;test;tags;iterations;elapsed\n",
       Enum.map(results, fn
-        {{mod, fun}, {iter, elapsed, _mem_stats}} ->
+        {{mod, fun}, {iter, elapsed, mem_stats}} ->
+          elapsed = elapsed * 1000
+          {mem_before, mem_after, mem_after_gc, _, _, _, _} = mem_stats
+          IO.puts "-------- Memory Usage (Bytes)--------"
+          IO.puts "mem_before, mem_after, mem_after_gc"
+          IO.puts "  #{mem_before}      #{mem_after},       #{mem_after_gc}"
+          IO.puts "-----------------------------------"
+          # IO.puts "mem_before, mem_after, mem_after_gc, sys_mem_before[:binary], sys_mem_before[:atom], sys_mem_after[:binary], sys_mem_after[:atom]"
+          # IO.puts "Memory - #{Enum.join(Tuple.to_list(mem_stats), ", ")}"
+
           :io_lib.format('~s\t~s\t\t~B\t~B~n', [inspect(mod), "#{fun}", iter, elapsed])
         _otherwise -> ""
       end)
