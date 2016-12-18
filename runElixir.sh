@@ -1,4 +1,5 @@
 #!/bin/bash
+
 printf "\n"
 sudo mix run network_programming/elixir/server.exs &
 sleep 3
