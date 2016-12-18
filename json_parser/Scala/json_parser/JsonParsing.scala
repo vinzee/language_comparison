@@ -1,4 +1,3 @@
-import collection.immutable.IndexedSeq
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -10,7 +9,7 @@ object JsonParsing {
   
     def maxVal():Integer = {
       
-        val json_string = scala.io.Source.fromFile("jsonData.json").getLines.mkString
+        val json_string = scala.io.Source.fromFile("jsonData1.json").getLines.mkString
         val jsonStringAsObject= new JsonParser().parse(json_string).getAsJsonObject
         val myObj:wrapperObject = gson.fromJson(jsonStringAsObject, classOf[wrapperObject])
         var maxPrice:Int = 0
@@ -35,12 +34,7 @@ object JsonParsing {
        
       time{println(maxVal())}
       
-      val mb = 1024*1024
       val runtime = Runtime.getRuntime
-      println("\nMemory in MB")
-      println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory) / mb)
-      println("** Free Memory:  " + runtime.freeMemory / mb)
-      println("** Total Memory: " + runtime.totalMemory / mb)
-      println("** Max Memory:   " + runtime.maxMemory / mb)       
+      println("Used Memory:  " + (runtime.totalMemory - runtime.freeMemory))    
     }
 }

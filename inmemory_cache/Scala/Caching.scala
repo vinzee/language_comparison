@@ -19,9 +19,7 @@ object Caching {
 		}
 		else{
 			TestMap += (key -> "Testing val")
-		}
-
-		
+		}		
 	}
 
 	def time[R](block: => R): R = {  
@@ -37,12 +35,14 @@ object Caching {
 		val rand = new Random
 		var tot = 0
 		for (a <- 0 to 1010){
-
-			time {cache(rand.nextInt(3000))}
+			if (a > 1005)
+				time {cache(rand.nextInt(3000))}
+			else
+				cache(rand.nextInt(3000))
+			
 		}
 
     	val runtime = Runtime.getRuntime
-    	println("\nMemory in MB")
     	println("** Used Memory:  " + (runtime.totalMemory - runtime.freeMemory)/1010)
 	}
 	
