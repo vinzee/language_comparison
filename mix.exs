@@ -28,8 +28,7 @@ defmodule KV.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:benchfella, "~> 0.3.0"},
-      {:socket, "~> 0.3"},
+      {:benchfella, "~> 0.3.0", path: "deps/benchfella" },
       {:json, "~> 1.0"},
       {:mariaex, "~> 0.7.3"},
       {:timex, "~> 3.0"}

@@ -1,6 +1,6 @@
 defmodule JSONParser do
   use Benchfella
-  Benchfella.start([{:bench_count, 1}])
+  Benchfella.start
 
   def parse do
     {_, data} = File.read(Path.absname("json_parser/jsonData.json"))

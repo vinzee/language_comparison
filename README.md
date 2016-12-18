@@ -10,14 +10,14 @@ Compare Languages across multiple aspects such as ->
 
 Elixir scripts -
 ```sh
-# REPL
-$ iex
 # Execute program
 $ elixirc hello_world.exs
 # Mix fetch dependencies
 $ mix deps.get
 # Execute program using mix
 $ mix run hello_world.exs
+# REPL
+$ iex -S mix
 ```
 
 ### Important links -
