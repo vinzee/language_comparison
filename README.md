@@ -7,8 +7,22 @@ Compare the 3 languages **Go,Elixir & Scala** across multiple aspects such as -
 - Socket programming
 - Inmemory cache
 
+
+## Running the program benchmarks
+```sh
+sudo chmod +x runElixir.sh
+sudo chmod +x runGoProg.sh
+sudo chmod +x runScala.sh
+
+sudo ./runElixir.sh
+sudo ./runGoProg.sh
+sudo ./runScala.sh
+
+```
+
 # Installation Steps
 ### Elixir Installation
+
 ```sh
 # install erlang
 wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
@@ -17,10 +31,8 @@ sudo apt-get install esl-erlang
 
 # install elixir
 sudo apt-get install elixir
-
-# download all dependencies
-mix deps.get
 ```
+
 ###  Go Installation
 ```sh
 # 1) Go Download link https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
@@ -33,9 +45,22 @@ mix deps.get
 # 8) go get github.com/go-sql-driver/mysql
 # 9) go get github.com/gonum/plot/plotter
 ```
-### MySQL installation
+
+### Scala Installation
+
 ```sh
-# login to mysql
+echo "You will need SBT to run this program. Installing it. ============>"
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+sudo apt-get update
+sudo apt-get install sbt
+
+```
+
+
+### MySQL Installation
+```sh
+# login to mysql (provide your password)
 mysql -u root -p
 
 # run the following commands in the mysql shell
