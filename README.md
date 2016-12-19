@@ -1,32 +1,50 @@
 # Language Comparison
-Compare Languages across multiple aspects such as ->
+Compare the 3 languages **Go,Elixir & Scala** across multiple aspects such as -
 - JSON parsing
 - DB operations
 - Concurrency
 - Regex Matching
 - Socket programming
 - Inmemory cache
-- Image processing
 
-Elixir scripts -
+# Installation Steps
+### Elixir Installation
 ```sh
-# Execute program
-$ elixirc hello_world.exs
-# Mix fetch dependencies
-$ mix deps.get
-# Execute program using mix
-$ mix run hello_world.exs
-# REPL
-$ iex -S mix
+# install erlang
+wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+sudo apt-get update
+sudo apt-get install esl-erlang
+
+# install elixir
+sudo apt-get install elixir
+```
+###  Go Installation
+```sh
+# 1) Go Download link https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
+# 2) extract it into /usr/local
+# 3) export PATH=$PATH:/usr/local/go/bin
+# 4) export GOROOT=/usr/local/go
+# 5) export GOPATH=/home/user_name/Documents/go  ##replace user_name accordingly
+# 6) sudo apt-get install mercurial
+# 7) go get github.com/gonum/plot
+# 8) go get github.com/go-sql-driver/mysql
+# 9) go get github.com/gonum/plot/plotter
+```
+### MySQL installation
+```sh
+# login to mysql
+mysql -u root -p
+
+# run the following commands in the mysql shell
+CREATE DATABASE language_comparison;
+USE language_comparison;
+CREATE USER 'guest'@'localhost' IDENTIFIED BY 'admin123';
+GRANT ALL PRIVILEGES ON *.* TO 'guest'@'localhost';
+source ~/code/language_comparison/database/db.sql
 ```
 
 ### Important links -
-- Installing Elixir - https://bordeltabernacle.github.io/2016/01/06/notes-on-elixir-upgrading-toinstalling-v12-on-ubuntu.html
 - http://elixir-lang.org/docs/stable/elixir/api-reference.html
-- https://www.tutorialspoint.com/elixir
 - Elixir - https://elixir.libhunt.com
-- Erlang - https://hex.pm/
-- https://github.com/drobakowski/awesome-erlang
-- Elixir basic Syntax Overview - http://elixir-lang.org/crash-course.html
 - Benchfella Elixir profiler - https://github.com/alco/benchfella
 - JSON parser - https://github.com/cblage/elixir-json
