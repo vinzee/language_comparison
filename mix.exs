@@ -30,8 +30,7 @@ defmodule KV.Mixfile do
     [
       {:benchfella, "~> 0.3.0", path: "deps/benchfella" },
       {:json, "~> 1.0"},
-      {:mariaex, "~> 0.7.3"},
-      {:timex, "~> 3.0"}
+      {:mariaex, "~> 0.7.3"}
     ]
   end
 end

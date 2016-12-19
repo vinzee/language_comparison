@@ -1,0 +1,103 @@
+// sudo ./runElixir.sh
+
+Settings:
+  duration:      1.0 s
+
+## NetworkProgramming
+[22:35:11] 1/1: NetworkProgramming
+
+Finished in 1.04 seconds
+-------- Memory Usage (Bytes)--------
+mem_before, mem_after, mem_after_gc
+  2608      75608,       2608
+-----------------------------------
+
+## NetworkProgramming
+benchmark name      iterations   average time
+NetworkProgramming         100   10309760.00 ns/op
+
+
+Settings:
+  duration:      1.0 s
+
+## Fibonacci
+[22:35:13] 1/1: parallel fibonnaci generator
+
+Finished in 2.03 seconds
+-------- Memory Usage (Bytes)--------
+mem_before, mem_after, mem_after_gc
+  2608      88400,       2608
+-----------------------------------
+
+## Fibonacci
+benchmark name                iterations   average time
+parallel fibonnaci generator        5000   330976.20 ns/op
+
+
+Settings:
+  duration:      1.0 s
+
+## DatabaseOperations
+[22:35:16] 1/1: DatabaseOperations
+
+Finished in 2.81 seconds
+-------- Memory Usage (Bytes)--------
+mem_before, mem_after, mem_after_gc
+  2608      42296,       2784
+-----------------------------------
+
+## DatabaseOperations
+benchmark name      iterations   average time
+DatabaseOperations       10000   245749.70 ns/op
+
+
+Settings:
+  duration:      1.0 s
+
+## InMemoryCache
+[22:35:19] 1/1: inmemory cache
+
+Finished in 5.23 seconds
+-------- Memory Usage (Bytes)--------
+mem_before, mem_after, mem_after_gc
+  2608      88504,       2712
+-----------------------------------
+
+## InMemoryCache
+benchmark name  iterations   average time
+inmemory cache    10000000   470.81 ns/op
+
+
+Settings:
+  duration:      1.0 s
+
+## JSONParser
+[22:35:25] 1/1: JSON Parser
+
+Finished in 1.28 seconds
+-------- Memory Usage (Bytes)--------
+mem_before, mem_after, mem_after_gc
+  2608      284440,       2608
+-----------------------------------
+
+## JSONParser
+benchmark na iterations   average time
+JSON Parser         100   11538430.00 ns/op
+
+
+Settings:
+  duration:      1.0 s
+
+## EmailValidator
+[22:35:27] 1/1: email validator
+
+Finished in 1.98 seconds
+-------- Memory Usage (Bytes)--------
+mem_before, mem_after, mem_after_gc
+  2608      88400,       2608
+-----------------------------------
+
+## EmailValidator
+benchmark name   iterations   average time
+email validator     1000000   1779.24 ns/op
+

@@ -17,6 +17,9 @@ sudo apt-get install esl-erlang
 
 # install elixir
 sudo apt-get install elixir
+
+# download all dependencies
+mix deps.get
 ```
 ###  Go Installation
 ```sh
