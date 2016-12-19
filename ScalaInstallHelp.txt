@@ -1,0 +1,47 @@
+Note: In order to run Scala, you will need Java on your system.
+
+	If it is not there, you can install it by following commands:
+	sudo apt-get install default-jre
+	sudo apt-get install default-jdk
+
+
+1. Installation of Scala:
+
+	sudo apt-get remove scala-library scala
+	wget http://www.scala-lang.org/files/archive/scala-2.11.6.deb
+	sudo dpkg -i scala-2.11.6.deb
+	sudo apt-get update
+	sudo apt-get install scala
+
+2. Installation of SBT:
+
+	#echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+	sudo apt-get update
+	sudo apt-get install sbt
+
+
+	Below steps may not be required. 
+==========================================================================================================================================================
+3. vi make_sbt.sh ==> make a shell file and run it.  Add the following contents in it.
+
+	#!/bin/sh
+	mkdir -p src/{main,test}/{java,resources,scala}
+	mkdir lib project target
+
+	# create an initial build.sbt file
+	echo 'name := "MyProject"
+	version := "1.0"
+	scalaVersion := "2.11.6"' > build.sbt
+
+4. Run command: 
+	sbt new eed3si9n/hello.g8
+
+5. Go to your folder created from the above command. Then follow the steps below:
+	vi build.sbt 
+	Append following line in the build.sbt inside your folder:
+	libraryDependencies += "com.google.code.gson" % "gson" % "2.8.0"
+
+6. sbt compile
+
+7. sbt run
