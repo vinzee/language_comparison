@@ -9,6 +9,7 @@ Compare the 3 languages **Go,Elixir & Scala** across multiple aspects such as -
 
 
 ## Running the program benchmarks
+Please Install the all the dependencies listed at the bottom and then run the following commands
 ```sh
 sudo chmod +x runElixir.sh
 sudo chmod +x runGoProg.sh
@@ -68,7 +69,7 @@ CREATE DATABASE language_comparison;
 USE language_comparison;
 CREATE USER 'guest'@'localhost' IDENTIFIED BY 'admin123';
 GRANT ALL PRIVILEGES ON *.* TO 'guest'@'localhost';
-source ~/code/language_comparison/database/db.sql
+source /path_to_project/language_comparison/database/db.sql
 ```
 
 ### Important links -
