@@ -17,7 +17,7 @@ object ScalaDatabase{
 		{
 			val id = rs.getInt("id")
 			val name = rs.getString("name")
-			val uni = rs.getString("uni")
+			val uni = rs.getString("university")
 			val age = rs.getInt("age")
 			result = "Student id is: " + id + "\n" + "Student name is: " + name + "\n" + "Student university is: " + uni + "\n" + "Student age is: " + age
 		}

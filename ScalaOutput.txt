@@ -1,0 +1,50 @@
+Starting the execution of scala programs
+
+Network Programming
+
+Client just replied with: Hello
+Server: 5
+Elapsed time in Client: 5602191ns
+** Used Memory:  2863872
+Elapsed time in Server: 1936469475ns
+** Used Memory:  2863896
+
+Concurrency
+Elapsed time: 16310996ns
+89
+** Used Memory in Parallel_fibo.scala:  3291152
+
+Database
+In get data
+Elapsed time: 3719571ns
+Student id is: 1
+Student name is: Shantanu
+Student university is: UMBC
+Student age is: 24
+** Used Memory:  2968720
+
+In memory cache
+Elapsed time: 28199ns
+Elapsed time: 48220ns
+Elapsed time: 1851ns
+Elapsed time: 1601ns
+Elapsed time: 1184ns
+** Used Memory:  2840
+
+JSON Parser running via SBT
+
+[0m[[0minfo[0m] [0mLoading project definition from /home/shantanu/Scala/language_comparison/json_parser/Scala/json_parser/project[0m
+[0m[[0minfo[0m] [0mSet current project to json_parser-root (in build file:/home/shantanu/Scala/language_comparison/json_parser/Scala/json_parser/)[0m
+[0m[[0minfo[0m] [0mRunning JsonParsing [0m
+9993
+Elapsed time: 127893453ns
+Used Memory:  245496824
+[0m[[32msuccess[0m] [0mTotal time: 0 s, completed Dec 19, 2016 12:18:38 AM[0m
+
+Pattern Matching
+true
+Elapsed time: 1186122ns
+false
+Elapsed time: 248097ns
+** Used Memory:  2864064
+
