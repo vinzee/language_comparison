@@ -21,6 +21,12 @@ sudo ./runScala.sh
 
 ```
 
+
+
+######## WE HAVE ADDED A FOLDER NAMED "OurOutput". THIS CONTAINS SAMPLE OUTPUTS FROM OURCOMPUTER TO ALL 3 SCRIPTS. #####################
+
+
+
 # Installation Steps
 ### Elixir Installation
 
@@ -50,11 +56,27 @@ sudo apt-get install elixir
 ### Scala Installation
 
 ```sh
-echo "You will need SBT to run this program. Installing it. ============>"
-echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
-sudo apt-get update
-sudo apt-get install sbt
+#Note: In order to run Scala, you will need Java on your system.
+
+#	If it is not there, you can install it by following commands:
+#	sudo apt-get install default-jre
+#	sudo apt-get install default-jdk
+
+
+#1. Installation of Scala:
+
+#	sudo apt-get remove scala-library scala
+#	wget http://www.scala-lang.org/files/archive/scala-2.11.6.deb
+#	sudo dpkg -i scala-2.11.6.deb
+#	sudo apt-get update
+#	sudo apt-get install scala
+
+#2. Installation of SBT:
+
+#	echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+#	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+#	sudo apt-get update
+#	sudo apt-get install sbt
 
 ```
 

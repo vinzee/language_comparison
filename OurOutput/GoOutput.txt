@@ -1,0 +1,22 @@
+
+time for networking program in Go is  145784  nanosecond
+memory for networking program in Go is 83432  bytes
+
+time for parallel fibonacci program in Go is  84178  nanosecons
+memory for parallel fibonacci program in Go is  18414  bytes
+
+time for databse  program in Go is  88601  nanosecons
+memory for database program in Go is  840  bytes
+
+time for inmemory cache program in Go is  217  nanosecons
+memory for inmemory cache program in Go is  0  bytes
+
+time for json parsing program in Go is  937574  nanosecons
+memory for json parsing program in Go is  88393  bytes
+
+time for pattern matching program in Go is  43211  nanosecons
+memory for pattern matching program in Go is  94961  bytes
+
+time for json graph plot program in Go is  44990752  nanosecons
+memory for graph plot program in Go is  2970779  bytes
+
