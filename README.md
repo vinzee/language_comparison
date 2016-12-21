@@ -21,6 +21,12 @@ sudo ./runScala.sh
 
 ```
 
+
+
+#### SAMPLE OUTPUT CAN BE FOUND IN THE FOLDER "OurOutput". 
+
+
+
 # Installation Steps
 ### Elixir Installation
 
@@ -38,24 +44,42 @@ sudo apt-get install elixir
 ```sh
 # 1) Go Download link https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
 # 2) extract it into /usr/local
-# 3) export PATH=$PATH:/usr/local/go/bin
-# 4) export GOROOT=/usr/local/go
-# 5) export GOPATH=/home/user_name/Documents/go  ##replace user_name accordingly
-# 6) sudo apt-get install mercurial
-# 7) go get github.com/gonum/plot
-# 8) go get github.com/go-sql-driver/mysql
-# 9) go get github.com/gonum/plot/plotter
+# 3) add go's install dir to PATH
+export PATH=$PATH:/usr/local/go/bin
+# 4) set GOROOT
+export GOROOT=/usr/local/go
+# 5) set GOPATH
+export GOPATH=/home/user_name/Documents/go  ##replace user_name accordingly
+# 6) install Mercurial
+sudo apt-get install mercurial
+# 7) install dependencies
+go get github.com/gonum/plot github.com/go-sql-driver/mysql github.com/gonum/plot/plotter
 ```
 
 ### Scala Installation
 
 ```sh
-echo "You will need SBT to run this program. Installing it. ============>"
-echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
-sudo apt-get update
-sudo apt-get install sbt
+#Note: In order to run Scala, you will need Java on your system.
 
+#	If it is not there, you can install it by following commands:
+	sudo apt-get install default-jre
+	sudo apt-get install default-jdk
+
+
+#1. Installation of Scala:
+
+	sudo apt-get remove scala-library scala
+	wget http://www.scala-lang.org/files/archive/scala-2.11.6.deb
+	sudo dpkg -i scala-2.11.6.deb
+	sudo apt-get update
+	sudo apt-get install scala
+
+#2. Installation of SBT:
+
+	echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+	sudo apt-get update
+	sudo apt-get install sbt
 ```
 
 

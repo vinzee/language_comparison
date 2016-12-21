@@ -3,6 +3,7 @@ echo "Starting the execution of scala programs"
 echo
 echo "Network Programming"
 
+sleep 3
 printf "\n"
 scala network_programming/Scala/ChatServer.scala &
 sleep 2
